@@ -68,12 +68,13 @@ class Router
                     $controller = "app\controllers\{$controller}";
                     if (class_exists($controller)) {
                         $object = new $controller($this->session, $this->messenger, $method);
-                        if (method_exists($object, $method) !== false) {
-                            $object->$method();
-                            return true;
-                        } else {
-                            return true;
-                        }
+                        $object->github();
+//                        if (method_exists($object, $method) !== false) {
+//                            $object->$method();
+//                            return true;
+//                        } else {
+//                            return true;
+//                        }
                     }
                 }
             }
