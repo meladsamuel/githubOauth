@@ -7,6 +7,8 @@ use app\lib\Messenger;
 
 $session = new SessionManager();
 $session->start();
+$session->test ='test';
+echo $session->test;
 $messenger = new Messenger($session);
 $request = new Request();
 $router = new router($request, $session, $messenger);
