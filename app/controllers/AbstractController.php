@@ -18,13 +18,9 @@ class AbstractController
     ];
     protected array $data = [];
 
-    /**
-     * @param $session
-     * @return bool
-     */
-    public function isAuthorized($session)
+    protected function isAuthorized()
     {
-        return in_array($this->_controller, $this->publicURL) || isset($session->user) ? true : false;
+        return  isset($this->session->user) || in_array($this->_controller, $this->publicURL) ? true : false;
     }
 
     protected function templateHeader($SRC)
@@ -50,10 +46,10 @@ class AbstractController
         require TEMPLATE_PATH . 'footerEnd.php';
     }
 
-    protected function templateBlocks(string $views, SessionManager $session)
+    protected function templateBlocks(string $views)
     {
         extract($this->data);
-        if ($this->isAuthorized($session)) {
+        if ($this->isAuthorized()) {
             $file = VIEWS_PATH . $views . '.view.php';
             if (file_exists($file))
                 require $file;
@@ -66,13 +62,12 @@ class AbstractController
 
     }
 
-    protected function view(string $views,  array $cssFiles = [], array $jsFiles = [])
+    protected function view(string $views, array $cssFiles = [], array $jsFiles = [])
     {
-//        var_dump($this->messenger);
         if (strpos($views, '@') !== false)
             $views = str_replace('@', DS, $views);
         $this->templateHeader($cssFiles);
-        $this->templateBlocks($views, $this->session);
+        $this->templateBlocks($views);
         $this->templateFooter($jsFiles);
     }
 

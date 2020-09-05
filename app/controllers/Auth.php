@@ -115,4 +115,11 @@ class Auth extends AbstractController
 
         $this->view('auth@password');
     }
+    public function logout() {
+        unset($this->session->user);
+        unset($this->session->dataGitHub);
+        unset($this->session->code);
+        unset($this->session->access_token);
+        $this->redirect('/auth/login');
+    }
 }

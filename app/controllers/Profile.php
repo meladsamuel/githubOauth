@@ -15,15 +15,18 @@ class Profile extends AbstractController
      * @param Messenger $messenger
      * @param string $method
      */
-    public function __construct(SessionManager $session, Messenger $messenger, string $method)
+    public function __construct(SessionManager $session, Messenger $messenger, string $controller, string $method)
     {
         $this->session = $session;
         $this->messenger = $messenger;
         $this->_method = $method;
+        $this->_controller = $controller;
     }
 
+
     public function profile() {
-        $this->view('profile@profile');
+        $this->data['user'] = $this->session->user;
+        $this->view('profile@profile', ['buttons']);
     }
 
 }

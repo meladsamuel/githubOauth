@@ -17,6 +17,7 @@ $router->get('/auth/github', 'Auth@github');
 $router->get('/auth/callback', 'Auth@callback');
 $router->get('/auth/password', 'Auth@password');
 $router->get('/profile', 'Profile@profile');
+$router->get('/auth/logout', 'Auth@logout');
 
 // return not found page if the router not exit
 if (!$router->dispatch()) {
