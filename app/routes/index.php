@@ -17,7 +17,10 @@ $router->post('/about/test', function () {
 //$router->any('/register', 'Users@register');
 //$router->get('/profile', 'Users@profile');
 
-$router->get('/auth/login', 'auth@login');
+//$router->get('/auth/login', 'auth@login');
+$router->get('/auth/login', function() {
+    echo 'test';
+});
 $router->get('/auth/github', 'auth@github');
 $router->get('/auth/callback', 'auth@callback');
 //$router->get('/auth', function() {
