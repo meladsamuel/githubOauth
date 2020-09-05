@@ -68,9 +68,9 @@ class Router
                     $controller = "app\controllers\Auth";
                     if (class_exists($controller)) {
                         echo $controller;
-//                        $object = new $controller($this->session, $this->messenger, $method);
-//                        if (method_exists($object, $method) !== false) {
-//                            $object->$method();
+                        $object = new $controller($this->session, $this->messenger, $method);
+                        if (method_exists($object, $method) !== false) {
+                            $object->$method();
 //                            return true;
 //                        } else {
 //                            return true;
