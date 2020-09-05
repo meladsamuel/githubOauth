@@ -65,7 +65,7 @@ class Router
                     return true;
                 } elseif (strpos($route['callback'], '@')) {
                     list($controller, $method) = explode('@', $route['callback']);
-                    $controller2 = "app\controllers\{$controller}";
+                    $controller2 = "app\controllers\\{$controller}";
                     $controller = "app\controllers\Auth";
                     if (class_exists($controller)) {
                         echo $controller ."<br>";
