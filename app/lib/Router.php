@@ -67,13 +67,15 @@ class Router
                     list($controller, $method) = explode('@', $route['callback']);
                     $controller = "app\controllers\Auth";
                     if (class_exists($controller)) {
-                        $object = new $controller($this->session, $this->messenger, $method);
-                        if (method_exists($object, $method) !== false) {
-                            $object->$method();
-                            return true;
-                        } else {
-                            return true;
-                        }
+                        echo $controller;
+//                        $object = new $controller($this->session, $this->messenger, $method);
+//                        if (method_exists($object, $method) !== false) {
+//                            $object->$method();
+//                            return true;
+//                        } else {
+//                            return true;
+//                        }
+//                        return true;
                     }
                 }
             }
