@@ -8,7 +8,6 @@
     <title>not found 404</title>
 </head>
 <body>
-<?php var_dump($this); ?>
 <h1>page not found</h1>
 </body>
 </html>
