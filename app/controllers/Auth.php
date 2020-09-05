@@ -61,7 +61,7 @@ class Auth extends AbstractController
         }else {
             echo 'erros';
         }
-        if (!isset($_GET['code']) || !isset($this->session->foodPrint))
+        if (!isset($_GET['code']) )
             $this->redirect('/auth/login');
         $params = [
             'client_id' => OAUTH_CLIENT_ID,
