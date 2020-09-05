@@ -23,9 +23,9 @@ $router->get('/auth/login', function() {
 });
 $router->get('/auth/github', 'auth@github');
 $router->get('/auth/callback', 'auth@callback');
-//$router->get('/auth', function() {
-//    echo 'auth work';
-//});
+$router->get('/auth', function() use ($messenger, $session) {
+    $controller = new \app\controllers\Auth($session,$messenger, 'login');
+});
 // return not found page if the router not exit
 if (!$router->dispatch()) {
     http_response_code(404);
