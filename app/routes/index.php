@@ -23,8 +23,10 @@ $router->get('/auth/login', function() {
 });
 $router->get('/auth/github', 'auth@github');
 $router->get('/auth/callback', 'auth@callback');
-$router->get('/auth', function() use ($messenger, $session) {
-    $controller = new \app\controllers\Auth($session,$messenger, 'login');
+$router->get('/auth', function() {
+    if(class_exists('app\controllers\Auth'))
+        echo 'class exits';
+
 });
 // return not found page if the router not exit
 if (!$router->dispatch()) {
