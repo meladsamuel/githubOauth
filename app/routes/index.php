@@ -21,8 +21,8 @@ $router->post('/about/test', function () {
 $router->get('/auth/login', function() {
     echo 'test';
 });
-$router->get('/auth/github', 'auth@github');
-$router->get('/auth/callback', 'auth@callback');
+$router->get('/auth/github', 'Auth@github');
+$router->get('/auth/callback', 'Auth@callback');
 $router->get('/auth', function() {
     if(class_exists('app\controllers\Auth'))
         echo 'class exits';
