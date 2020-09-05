@@ -19,7 +19,7 @@ class SessionManager extends SessionHandler
     private bool $sessionSSL = true; //TODO change to turn https have SSL
     private bool $sessionHTTPOnly = true;
     private string $sessionPath = '/';
-    private ?string $sessionDomain = WEB_SITE_NAME; //TODO change to your domain
+    private ?string $sessionDomain = null; //TODO change to your domain
     private string $sessionSavePath = SESSION_PATH;
     private string $sessionCipherAlgo = 'AES-128-ECB';
     private string $sessionCipherKey = 'WYCRYPT0K3Y@2016';
