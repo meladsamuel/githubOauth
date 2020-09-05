@@ -20,7 +20,7 @@ class SessionManager extends SessionHandler
     private bool $sessionHTTPOnly = true;
     private string $sessionPath = '/';
     private ?string $sessionDomain = null; //TODO change to your domain
-    private string $sessionSavePath = SESSION_PATH;
+//    private string $sessionSavePath = SESSION_PATH;
     private string $sessionCipherAlgo = 'AES-128-ECB';
     private string $sessionCipherKey = 'WYCRYPT0K3Y@2016';
     private int $sessionTTL = 1;
