@@ -61,17 +61,17 @@ class Auth extends AbstractController
         }else {
             echo 'erros';
         }
-        if (!isset($_GET['code']) || !isset($this->session->foodPrint))
-            $this->redirect('/auth/login');
-        $params = [
-            'client_id' => OAUTH_CLIENT_ID,
-            'redirect_uri' => 'https://' . $_SERVER['SERVER_NAME'] . '/auth/callback',
-            'scope' => 'user',
-            'state' => $this->session->foodPrint,
-            'code' => $_GET['code']
-        ];
-        $response = API::sendRequest($this->tokenURL, $this->session, $params);
-        $this->session->access_token = $response->access_token;
+//        if (!isset($_GET['code']) || !isset($this->session->foodPrint))
+//            $this->redirect('/auth/login');
+//        $params = [
+//            'client_id' => OAUTH_CLIENT_ID,
+//            'redirect_uri' => 'https://' . $_SERVER['SERVER_NAME'] . '/auth/callback',
+//            'scope' => 'user',
+//            'state' => $this->session->foodPrint,
+//            'code' => $_GET['code']
+//        ];
+//        $response = API::sendRequest($this->tokenURL, $this->session, $params);
+//        $this->session->access_token = $response->access_token;
 //        $this->redirect('auth/callback');
 
 
