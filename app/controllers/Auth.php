@@ -34,14 +34,6 @@ class Auth extends AbstractController
 
     public function login()
     {
-        if (isset($this->session->access_token)) {
-            $user = API::sendRequest($this->apiURL . 'user', $this->session);
-            echo '<h3>Logged In</h3>';
-            echo '<h4>' . $user->name . '</h4>';
-            echo '<pre>';
-            print_r($user);
-            echo '</pre>';
-        }
         $this->view('auth@login', ['css/all.min.css', 'css/buttons.css']);
     }
 
@@ -80,7 +72,7 @@ class Auth extends AbstractController
         ];
         $response = API::sendRequest($this->tokenURL, $this->session, $params);
         $this->session->access_token = $response->access_token;
-        $this->redirect('auth/callback');
+//        $this->redirect('auth/callback');
 
 
     }
