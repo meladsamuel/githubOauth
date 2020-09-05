@@ -10,12 +10,6 @@ $session->start();
 $messenger = new Messenger($session);
 $request = new Request();
 $router = new router($request, $session, $messenger);
-$router->post('/about/test', function () {
-    echo 'about function work';
-});
-//$router->get('/login', 'Users@login');
-//$router->any('/register', 'Users@register');
-//$router->get('/profile', 'Users@profile');
 
 $router->get('/auth/login', 'Auth@login');
 $router->get('/auth/github', 'Auth@github');
