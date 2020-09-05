@@ -43,7 +43,8 @@ class Auth extends AbstractController
             'scope' => 'user',
             'state' => $this->session->foodPrint
         );
-        $this->redirect($this->authorizeURL . '?' . http_build_query($params));
+        echo '<h1>done</h1>';
+//        $this->redirect($this->authorizeURL . '?' . http_build_query($params));
     }
 
     public function callback()
