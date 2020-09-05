@@ -65,9 +65,11 @@ class Router
                     return true;
                 } elseif (strpos($route['callback'], '@')) {
                     list($controller, $method) = explode('@', $route['callback']);
+                    $controller2 = "app\controllers\{$controller}";
                     $controller = "app\controllers\Auth";
                     if (class_exists($controller)) {
-                        echo $controller;
+                        echo $controller ."<br>";
+                        echo $controller2;
                         $object = new $controller($this->session, $this->messenger, $method);
                         if (method_exists($object, $method) !== false) {
                             $object->$method();
