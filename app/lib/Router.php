@@ -69,6 +69,7 @@ class Router
                     if (class_exists($controller)) {
                         $object = new $controller($this->session, $this->messenger, $method);
                         $object->github();
+                        return true;
 //                        if (method_exists($object, $method) !== false) {
 //                            $object->$method();
 //                            return true;
