@@ -51,16 +51,16 @@ class Auth extends AbstractController
 
     public function callback()
     {
-//        if (isset($this->session->access_token)) {
-//            $user = API::sendRequest($this->apiURL . 'user', $this->session, $params);
-//            echo '<h3>Logged In</h3>';
-//            echo '<h4>' . $user->name . '</h4>';
-//            echo '<pre>';
-//            print_r($user);
-//            echo '</pre>';
-//        }else {
-//            echo 'erros';
-//        }
+        if (isset($this->session->access_token)) {
+            $user = API::sendRequest($this->apiURL . 'user', $this->session, $params);
+            echo '<h3>Logged In</h3>';
+            echo '<h4>' . $user->name . '</h4>';
+            echo '<pre>';
+            print_r($user);
+            echo '</pre>';
+        }else {
+            echo 'erros';
+        }
         if (!isset($_GET['code']))
             $this->redirect('/auth/login');
         $params = [
