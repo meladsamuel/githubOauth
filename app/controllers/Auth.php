@@ -34,6 +34,8 @@ class Auth extends AbstractController
 
     public function login()
     {
+        $this->session->test = 'test';
+        echo $this->session->test;
         $this->view('auth@login', ['css/all.min.css', 'css/buttons.css']);
     }
 
