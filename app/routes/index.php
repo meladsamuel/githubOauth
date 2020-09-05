@@ -11,9 +11,12 @@ $messenger = new Messenger($session);
 $request = new Request();
 $router = new router($request, $session, $messenger);
 
+$router->get('/', 'Index@default');
 $router->get('/auth/login', 'Auth@login');
 $router->get('/auth/github', 'Auth@github');
 $router->get('/auth/callback', 'Auth@callback');
+$router->get('/auth/password', 'Auth@password');
+$router->get('/profile', 'Profile@profile');
 
 // return not found page if the router not exit
 if (!$router->dispatch()) {

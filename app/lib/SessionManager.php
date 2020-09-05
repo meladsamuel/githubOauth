@@ -10,13 +10,15 @@ use SessionHandler;
  * @property string msg
  * @property string foodPrint
  * @property string access_token
+ * @property string code
+ * @property object dataGitHub
  * @package app\lib
  */
 class SessionManager extends SessionHandler
 {
     private string $sessionName = 'app';
     private int $sessionMaxLifeTime = 0;
-    private bool $sessionSSL = true; //TODO change to turn https have SSL
+    private bool $sessionSSL = false; //TODO change to turn https have SSL
     private bool $sessionHTTPOnly = true;
     private string $sessionPath = '/';
     private ?string $sessionDomain = null; //TODO change to your domain

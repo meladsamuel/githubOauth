@@ -22,10 +22,10 @@ defined('CSS') ? null : define('CSS', WEB_SITE_NAME . '/css/');//css folder path
 
 // CONNECTION CONSTANT
 defined('DATABASE_HOST_NAME') ? null : define('DATABASE_HOST_NAME', 'mysql-mevqc3xeyr6xa.mysql.database.azure.com');
-defined('DATABASE_DB_NAME') ? null : define('DATABASE_DB_NAME', 'loginsys');
+defined('DATABASE_DB_NAME') ? null : define('DATABASE_DB_NAME', 'Oauth');
 defined('DATABASE_USER_NAME') ? null : define('DATABASE_USER_NAME', 'melad@mysql-mevqc3xeyr6xa');
 defined('DATABASE_PASSWORD') ? null : define('DATABASE_PASSWORD', '7RAprBQqD:W_"b^ce}s!');
-// SESSION HANDER
+// SESSION HANDLER
 defined('SESSION_PATH') ? null : define('SESSION_PATH', APP_PATH . DS . '..' . DS . 'sessions' . DS);
 // APP SALT
 defined('APP_SALT') ? null : define('APP_SALT', '$2a$07$4frtkmwo83fzy3gdywsty0$');

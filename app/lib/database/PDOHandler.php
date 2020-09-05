@@ -2,6 +2,7 @@
 
 namespace app\lib\database;
 
+use mysql_xdevapi\Exception;
 use PDO;
 use PDOStatement;
 
@@ -29,6 +30,8 @@ class PDOHandler
 
     protected static function init(): void
     {
+        try {
+
             self::$_handler = new PDO(
                 'mysql:host=' . DATABASE_HOST_NAME . ';dbname=' . DATABASE_DB_NAME,
                 DATABASE_USER_NAME, DATABASE_PASSWORD, array(
@@ -36,7 +39,10 @@ class PDOHandler
                     PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
                 )
             );
-  
+        }catch (\Exception $e){
+            var_dump($e);
+        }
+
     }
 
     public static function getInstance(): PDOHandler

@@ -10,8 +10,12 @@ use app\lib\SessionManager;
 class AbstractController
 {
     protected string $_method;
+    protected string $_controller;
     protected SessionManager $session;
     public Messenger $messenger;
+    protected array $publicURL = [
+        'Auth',
+    ];
     protected array $data = [];
 
     /**
@@ -20,7 +24,7 @@ class AbstractController
      */
     public function isAuthorized($session)
     {
-        return $this->_method == 'register' || isset($session->user) ? true : false;
+        return in_array($this->_controller, $this->publicURL) || isset($session->user) ? true : false;
     }
 
     protected function templateHeader($SRC)

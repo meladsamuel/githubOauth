@@ -64,10 +64,10 @@ class Router
                     $route['callback']();
                     return true;
                 } elseif (strpos($route['callback'], '@')) {
-                    list($controller, $method) = explode('@', $route['callback']);
-                    $controller = "app\controllers\\{$controller}";
+                    list($control, $method) = explode('@', $route['callback']);
+                    $controller = "app\controllers\\{$control}";
                     if (class_exists($controller)) {
-                        $object = new $controller($this->session, $this->messenger, $method);
+                        $object = new $controller($this->session, $this->messenger, $control, $method);
                         if (method_exists($object, $method) !== false) {
                             $object->$method();
                             return true;
