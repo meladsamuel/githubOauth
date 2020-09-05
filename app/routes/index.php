@@ -23,11 +23,7 @@ $router->get('/auth/login', function() {
 });
 $router->get('/auth/github', 'Auth@github');
 $router->get('/auth/callback', 'Auth@callback');
-$router->get('/auth', function() {
-    if(class_exists('app\controllers\Auth'))
-        echo 'class exits';
 
-});
 // return not found page if the router not exit
 if (!$router->dispatch()) {
     http_response_code(404);
