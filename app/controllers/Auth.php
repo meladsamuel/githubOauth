@@ -71,9 +71,7 @@ class Auth extends AbstractController
             'code' => $_GET['code']
         ];
         $response = API::sendRequest($this->tokenURL, $this->session, $params);
-        echo $this->session->foodPrint;
         $this->session->access_token = $response->access_token;
-        echo $this->session->access_token;
 //        $this->redirect('auth/callback');
 
 
