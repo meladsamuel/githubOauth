@@ -35,7 +35,7 @@ class Auth extends AbstractController
     public function login()
     {
         if (isset($this->session->access_token)) {
-            $user = API::sendRequest($this->apiURL . 'user', $this->session, $params);
+            $user = API::sendRequest($this->apiURL . 'user', $this->session);
             echo '<h3>Logged In</h3>';
             echo '<h4>' . $user->name . '</h4>';
             echo '<pre>';
