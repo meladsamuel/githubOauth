@@ -51,20 +51,26 @@ class Auth extends AbstractController
 
     public function callback()
     {
-
-        if (!isset($_GET['code']))
+        if (isset($this->session->access_token)) {
+            $user = API::sendRequest($this->apiURL . 'user', $this->session, $params);
+            echo '<h3>Logged In</h3>';
+            echo '<h4>' . $user->name . '</h4>';
+            echo '<pre>';
+            print_r($user);
+            echo '</pre>';
+        }
+        if (!isset($_GET['code']) || !isset($this->session->foodPrint))
             $this->redirect('/auth/login');
         $params = [
             'client_id' => OAUTH_CLIENT_ID,
             'redirect_uri' => 'https://' . $_SERVER['SERVER_NAME'] . '/auth/callback',
             'scope' => 'user',
             'state' => $this->session->foodPrint,
-            'code' => $this->filterString($_GET['code'])
+            'code' => $_GET['code']
         ];
         $response = API::sendRequest($this->tokenURL, $this->session, $params);
         $this->session->access_token = $response->access_token;
-        $user = API::sendRequest($this->apiURL . 'user', $this->session);
-        echo $user->user;
+        $this->redirect('auth/callback');
 
 
     }
