@@ -1,16 +1,19 @@
 {
-    "require-dev": {
-        "heroku/heroku-buildpack-php": "^179.0"
-    },
-    "autoload": {
-        "psr-4": {"app\\": "app/"}
-    },
-    "require": {
-        "ext-openssl": "*",
-        "ext-pdo": "*",
-      "ext-mysqli": "*",
-      "ext-mbstring": "*",
-        "ext-curl": "*",
-        "ext-json": "*"
+  "require-dev": {
+    "heroku/heroku-buildpack-php": "^179.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "app\\": "app/"
     }
+  },
+  "require": {
+    "ext-openssl": "*",
+    "ext-pdo": "*",
+    "ext-mysqli": "*",
+    "ext-mbstring": "*",
+    "ext-curl": "*",
+    "ext-json": "*",
+    "ext-memcached": "*"
+  }
 }
