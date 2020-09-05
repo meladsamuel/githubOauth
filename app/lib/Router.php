@@ -2,7 +2,6 @@
 
 
 namespace app\lib;
-use app\controllers;
 
 class Router
 {
@@ -67,15 +66,16 @@ class Router
                 } elseif (strpos($route['callback'], '@')) {
                     list($controller, $method) = explode('@', $route['callback']);
                     $controller = 'app\\controllers\\' . $controller;
+                    echo $controller;
 //                    if (class_exists($controller)) {
-                        $object = new $controller($this->session, $this->messenger , $method);
-                        if (method_exists($object, $method) !== false) {
-                            $object->$method();
-                            return true;
-                        } else {
-                            return true;
-                        }
-//                    }
+//                        $object = new $controller($this->session, $this->messenger, $method);
+//                        if (method_exists($object, $method) !== false) {
+//                            $object->$method();
+//                            return true;
+//                        } else {
+//                            return true;
+//                        }
+                    }
                 }
             }
         }
