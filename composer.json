@@ -9,6 +9,8 @@
         "ext-openssl": "*",
         "ext-pdo": "*",
       "ext-mysqli": "*",
-      "ext-mbstring": "*"
+      "ext-mbstring": "*",
+        "ext-curl": "*",
+        "ext-json": "*"
     }
 }

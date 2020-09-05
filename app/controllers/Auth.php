@@ -4,13 +4,16 @@
 namespace app\controllers;
 
 
+use app\lib\API;
 use app\lib\Helper;
+use app\lib\InputFilter;
 use app\lib\Messenger;
 use app\lib\SessionManager;
 
 class Auth extends AbstractController
 {
     use Helper;
+    use InputFilter;
 
     protected string $authorizeURL = 'https://github.com/login/oauth/authorize';
     protected string $tokenURL = 'https://github.com/login/oauth/access_token';
@@ -37,20 +40,32 @@ class Auth extends AbstractController
     public function github()
     {
         $this->session->foodPrint = hash('sha256', microtime(TRUE) . rand() . $_SERVER['REMOTE_ADDR']);
-        $params = array(
+        $params = [
             'client_id' => OAUTH_CLIENT_ID,
             'redirect_uri' => 'https://' . $_SERVER['SERVER_NAME'] . '/auth/callback',
             'scope' => 'user',
             'state' => $this->session->foodPrint
-        );
+        ];
         $this->redirect($this->authorizeURL . '?' . http_build_query($params));
     }
 
     public function callback()
     {
-        if(isset($_GET['code'])){
-            echo $_GET['code'];
-        }
+
+        if (isset($_GET['code']))
+            $this->redirect('/auth/login');
+        $params = [
+            'client_id' => OAUTH_CLIENT_ID,
+            'redirect_uri' => 'https://' . $_SERVER['SERVER_NAME'] . '/auth/callback',
+            'scope' => 'user',
+            'state' => $this->session->foodPrint,
+            'code' => $this->filterString($_GET['code'])
+        ];
+        $response = API::sendRequest($this->tokenURL, $this->session, $params);
+        $this->session->access_token = $response->access_token;
+        $user = API::sendRequest($this->apiURL . 'user', $this->session);
+        echo $user->user;
+
 
     }
 }

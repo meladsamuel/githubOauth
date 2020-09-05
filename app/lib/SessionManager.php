@@ -9,6 +9,7 @@ use SessionHandler;
  * @property object user
  * @property string msg
  * @property string foodPrint
+ * @property string access_token
  * @package app\lib
  */
 class SessionManager extends SessionHandler
