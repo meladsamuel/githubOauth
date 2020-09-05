@@ -13,7 +13,7 @@ defined('VENDOR_PATH') ? null : define('VENDOR_PATH', APP_PATH . DS . '..' . DS 
 
 
 defined('OAUTH_CLIENT_ID') ? null : define('OAUTH_CLIENT_ID', 'b143db07d59510b2de71');// auth client id
-defined('OAUTH_CLIENT_SECRET') ? null : define('OAUTH_CLIENT_SECRET', 'd0f9ae61c288c4c13c37726513f4c450eda7b3f5');// auth client secret
+defined('OAUTH_CLIENT_SECRET') ? null : define('OAUTH_CLIENT_SECRET', 'bf0160b41d055f2b60e2973c0346edce01386ee0');// auth client secret
 
 
 // WEBSITE ROUTE

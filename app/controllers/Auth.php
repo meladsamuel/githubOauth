@@ -39,7 +39,7 @@ class Auth extends AbstractController
         $this->session->foodPrint = hash('sha256', microtime(TRUE) . rand() . $_SERVER['REMOTE_ADDR']);
         $params = array(
             'client_id' => OAUTH_CLIENT_ID,
-            'redirect_uri' => 'http://' . $_SERVER['SERVER_NAME'] . '/auth/github',
+            'redirect_uri' => 'https://' . $_SERVER['SERVER_NAME'] . '/auth/github',
             'scope' => 'user',
             'state' => $this->session->foodPrint
         );
