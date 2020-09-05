@@ -17,7 +17,7 @@ $router->post('/about/test', function () {
 //$router->any('/register', 'Users@register');
 //$router->get('/profile', 'Users@profile');
 
-$router->get('/auth/login', 'auth@login');
+$router->get('/auth/login', 'Auth@login');
 $router->get('/auth/github', 'Auth@github');
 $router->get('/auth/callback', 'Auth@callback');
 
