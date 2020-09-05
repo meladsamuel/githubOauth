@@ -61,7 +61,7 @@ class Auth extends AbstractController
         }else {
             echo 'erros';
         }
-        if (!isset($_GET['code']) )
+        if (!isset($_GET['code']))
             $this->redirect('/auth/login');
         $params = [
             'client_id' => OAUTH_CLIENT_ID,
@@ -72,6 +72,7 @@ class Auth extends AbstractController
         ];
         $response = API::sendRequest($this->tokenURL, $this->session, $params);
         $this->session->access_token = $response->access_token;
+        echo $this->session->access_token;
 //        $this->redirect('auth/callback');
 
 
