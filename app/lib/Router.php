@@ -2,7 +2,7 @@
 
 
 namespace app\lib;
-
+use app\controllers;
 
 class Router
 {
@@ -73,7 +73,7 @@ class Router
                             $object->$method();
                             return true;
                         } else {
-                            return false;
+                            return true;
                         }
                     }
                 }
