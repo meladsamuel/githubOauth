@@ -65,17 +65,15 @@ class Router
                     return true;
                 } elseif (strpos($route['callback'], '@')) {
                     list($controller, $method) = explode('@', $route['callback']);
-                    $controller = "app\controllers\{$controller}";
+                    $controller = "app\controllers\Auth";
                     if (class_exists($controller)) {
                         $object = new $controller($this->session, $this->messenger, $method);
-                        $object->github();
-                        return true;
-//                        if (method_exists($object, $method) !== false) {
-//                            $object->$method();
-//                            return true;
-//                        } else {
-//                            return true;
-//                        }
+                        if (method_exists($object, $method) !== false) {
+                            $object->$method();
+                            return true;
+                        } else {
+                            return true;
+                        }
                     }
                 }
             }
